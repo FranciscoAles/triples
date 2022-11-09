@@ -72,7 +72,11 @@ createItems(columnCount);
 
 // we need to size everything perfectly, and this function will let us do that
 function size() {
-    bar.style.fontSize = 0.05 * window.innerHeight + "px";
+    if (window.innerWidth < window.innerHeight) {
+        bar.style.fontSize = 0.08 * window.innerWidth + "px";
+    } else {
+        bar.style.fontSize = 0.05 * window.innerHeight + "px";
+    }
     grid.style.marginTop = bar.offsetHeight / 2 + "px";
     grid.style.marginBottom = bar.offsetHeight / 2 + "px";
     let gdHeight = window.innerHeight - bar.offsetHeight * 2;
@@ -255,7 +259,7 @@ let settingsPopup = intoPopup(document.getElementById("settings-popup"), documen
 let winPopup = intoPopup(document.getElementById("win-popup"));
 
 // restart game with button
-let restartButton = document.querySelector("#win-popup > button");
+let restartButton = document.querySelector("#win-popup button");
 restartButton.addEventListener("click", restart);
 function restart() {
     winPopup.closePopup();

@@ -169,24 +169,8 @@ body {
     border-radius: 100%;
 }
 
-#win-popup {
-    position: fixed;
-    top: 30%;
-    left: 40%;
-    width: 20%;
-    height: 20%;
-    background-color: white;
-    border: 5px solid var(--red);
-    border-radius: 10px;
-    display: none;
-    flex-direction: column;
-    justify-content: cneter;
-    align-items: center;
-}
-
-#win-popup > * {
-    margin-left: 20px;
-    margin-right: 20px;
+#win-popup > h2 {
+    text-align: center;
 }
 
 .restart-button {
@@ -197,7 +181,7 @@ body {
     padding: 10px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 120%;
+    font-size: 80%;
     transition: opacity 0.2s;
 }
 
@@ -216,7 +200,8 @@ body {
 #select-grid-size {
     padding: 0.3em;
     border-radius: 10%;
-    border-color: var(--red);
+    border: 1px solid var(--red);
     font-size: 1em;
     margin: 5px;
+    cursor: pointer;
 }
