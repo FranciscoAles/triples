@@ -1,6 +1,6 @@
 // game variables
 let gridItemArray = [];
-let columnCount = 6;
+let columnCount = 8;
 let checkCount = 0;
 let checkedArray = [];
 let completedCount = 0;
@@ -84,16 +84,17 @@ function size() {
     grid.style.height = gdHeight + "px";
     let itemWidth;
     let itemHeight;
+    let itemFontSize;
 
     if (gdWidth > gdHeight) {
         itemHeight = gdHeight / (columnCount * 1.1);
         itemWidth = itemHeight * 1.2;
+        itemFontSize = itemWidth / 4;
     } else {
         itemWidth = gdWidth / (columnCount * 1.1);
         itemHeight = itemWidth;
+        itemFontSize = itemWidth / 4.5;
     }
-    
-    let itemFontSize = itemWidth / 4;
     
     for (let i = 0; i < gridItemArray.length; i++) {
         let elmnt = gridItemArray[i].item;
@@ -105,9 +106,7 @@ function size() {
 
 // size everything
 window.addEventListener("resize", size);
-document.body.onload = function() {
-    size();
-}
+document.body.onload = size();
 
 // this function is called when any input is checked
 function itemChecked(event) {
@@ -244,6 +243,7 @@ class Popup {
     }
 }
 
+// connects a button to a popup so that it can open by the clicking of the button
 function intoPopup(p, a) {
     createdPopup = new Popup(p, a);
     if (createdPopup.activator != undefined) {
@@ -275,4 +275,5 @@ selectGridSize.addEventListener("input", changeGridSize);
 function changeGridSize() {
     columnCount = parseInt(selectGridSize.value);
     restart();
+    size();
 }

@@ -11,6 +11,27 @@
     --cornerstone: #75787B;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
@@ -70,9 +91,9 @@ body {
 
 #grid-container {
     display: inline-grid;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
     justify-content: space-around;
     align-content: space-around;
 }
@@ -146,6 +167,7 @@ body {
     left: 5%;
     width: 90%;
     height: 90%;
+    overflow-y: auto;
     background-color: white;
     border: 5px solid var(--red);
     border-radius: 10px;
