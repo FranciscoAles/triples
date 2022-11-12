@@ -269,6 +269,7 @@ function restart() {
     createItems(columnCount);
     size();
     completedCount = 0;
+    checkCount = 0;
 }
 
 // settings
