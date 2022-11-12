@@ -1,6 +1,6 @@
 // game variables
 let gridItemArray = [];
-let columnCount = 8;
+let columnCount = 6;
 let checkCount = 0;
 let checkedArray = [];
 let completedCount = 0;
@@ -106,7 +106,9 @@ function size() {
 
 // size everything
 window.addEventListener("resize", size);
-document.body.onload = size();
+document.body.onload = function() {
+    size();
+};
 
 // this function is called when any input is checked
 function itemChecked(event) {
