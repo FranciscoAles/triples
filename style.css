@@ -150,6 +150,12 @@ body {
     }
 }
 
+#undo-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
 #overlay {
     position: fixed;
     top: 0px;
