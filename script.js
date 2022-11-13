@@ -4,6 +4,7 @@ let columnCount = 6;
 let checkCount = 0;
 let checkedArray = [];
 let completedCount = 0;
+let completedArray = [];
 
 // main elements of website
 let grid = document.getElementById("grid-container");
@@ -20,7 +21,7 @@ class gridItem {
 
         this.checkbox.addEventListener("input", itemChecked);
 
-        this.disable = function () {
+        this.disable = function() {
             this.label.style.animation = "disable 0.5s forwards";
             this.checkbox.disabled = true;
             this.label.style.cursor = "default";
@@ -29,6 +30,13 @@ class gridItem {
             if (completedCount == gridItemArray.length) {
                 winPopup.openPopup();
             }
+        };
+
+        this.enable = function() {
+            this.label.style.animation = "disable 0.5s backwards";
+            this.checkbox.disabled = false;
+            this.label.style.cursor = "pointer";
+            completedCount--;
         };
     }
 }
@@ -110,6 +118,18 @@ document.body.onload = function() {
     size();
 };
 
+// undo
+undoButton = document.getElementById("undo-button");
+undoButton.addEventListener("click", undo);
+function undo() {
+    if (completedCount >= 3) {
+        for (let i of completedArray.slice(-3)) {
+            i.enable();
+            completedArray.pop();
+        }
+    }
+}
+
 // this function is called when any input is checked
 function itemChecked(event) {
     if (event.target.checked) {
@@ -141,6 +161,7 @@ function itemChecked(event) {
             for (let i of checkedArray) {
                 i.disable();
                 i.checkbox.checked = false;
+                completedArray.push(i);
             }
             
             checkCount = 0;
@@ -148,6 +169,7 @@ function itemChecked(event) {
         }
     }
 }
+
 
 // this function get's the last set of a set when given the first two
 function getLastSet(set1, set2) {
