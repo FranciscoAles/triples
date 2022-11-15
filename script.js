@@ -33,7 +33,7 @@ class gridItem {
         };
 
         this.enable = function() {
-            this.label.style.animation = "disable 0.5s backwards";
+            this.label.style.animation = "enable 0.5s forwards";
             this.checkbox.disabled = false;
             this.label.style.cursor = "pointer";
             completedCount--;
