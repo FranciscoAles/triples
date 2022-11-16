@@ -170,7 +170,22 @@ body {
 }
 
 #undo-button {
-    grid-area: 6 / 1 / 7 / 2;
+    background-color: white;
+    border-radius: 10%;
+    font-size: 100%;
+    border: 3px solid var(--red);
+    cursor: pointer;
+    transition: background-color 0.5s;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding: 1%;
+    margin-left: 9%;
+    margin-bottom: 5%;
+}
+
+#undo-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 #overlay {
