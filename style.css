@@ -172,16 +172,16 @@ body {
 #undo-button {
     background-color: white;
     border-radius: 10%;
-    font-size: 100%;
+    font-size: 120%;
     border: 3px solid var(--red);
     cursor: pointer;
     transition: background-color 0.5s;
     position: absolute;
     left: 0px;
     bottom: 0px;
-    padding: 1%;
+    padding: 2%;
     margin-left: 9%;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 #undo-button:hover {
