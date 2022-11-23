@@ -12,54 +12,25 @@
         <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,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">
     </head>
     <body>
-        <div id="bar">
-            <div id="left-icons">
-                <span class="material-symbols-outlined bar-button" id="fullscreen-button">fullscreen</span>
-                <span class="material-symbols-outlined bar-button" id="settings-button">settings</span>
-            </div>
+        <div id="title-bar">
+            <span class="material-symbols-outlined" id="menu-button">menu</span>
             <h1 id="title">TRIPLES</h1>
-            <div id="right-icons">
-                <span class="material-symbols-outlined bar-button" id="info-button">info</span>
-                <a class="material-symbols-outlined bar-button" target="_blank" href="https://github.com/FranciscoAles/triples">code</a>
-            </div>
+            <span class="material-symbols-outlined" id="home-button">home</span>
         </div>
         
-        <div id="grid-container"></div>
+        <div id="grid-container"><button id="undo-button">Undo</button></div>
         
-        <button id="undo-button">Undo</button>
+        
 
         <div id="overlay"></div>
-        
-        <div class="popup" id="settings-popup">
-            <h1>Settings</h1>
-            <hr>
-            <label>The number of columns and rows in the grid: </label>
-            <select id="select-grid-size">
-                <option value="6">6 by 6</option>
-                <option value="8">8 by 8</option>
-                <option value="12">12 by 12</option>
-                <option value="14">14 by 14</option>
-                <option value="18">18 by 18</option>
-                <option value="20">20 by 20</option>
-            </select>
-        </div>
 
-        <div class="popup" id="info-popup">
-            <h2>Information on the game</h2>
-            <hr>
-            <h3>How to play</h3>
-            <p>The goal of this game is to eliminate all the sets, three sets at a time.</p>
-            <p>Start by selecting two sets that have a number in common.</p>
-            <p>The third set that you select should have the two numbers that the first two selected sets <em>did not</em> have in common.</p>
-            <p>Once the three sets are selected, they will be eliminated.</p>
-            <p>Eliminate all the sets, and you'll win.</p>
+        <div id="menu">
+            <span class="material-symbols-outlined" id="close-menu-button">arrow_back_ios_new</span>
         </div>
 
         <div class="popup" id="win-popup">
             <h2>YOU'VE WON!</h2>
-            <h2>
-                <button class="restart-button">Restart</button>
-            </h2>
+            <h2><button class="restart-button">Restart</button></h2>
         </div>
         
         <script src="script.js"></script>

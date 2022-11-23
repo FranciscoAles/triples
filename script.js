@@ -8,7 +8,8 @@ let completedArray = [];
 
 // main elements of website
 let grid = document.getElementById("grid-container");
-let bar = document.getElementById("bar");
+let bar = document.getElementById("title-bar");
+let undoButton = document.getElementById("undo-button");
 
 // each item of the grid needs its own properties and stuff
 class gridItem {
@@ -81,12 +82,13 @@ createItems(columnCount);
 // we need to size everything perfectly, and this function will let us do that
 function size() {
     if (window.innerWidth < window.innerHeight) {
-        bar.style.fontSize = 0.08 * window.innerWidth + "px";
+        bar.style.fontSize = 0.1 * window.innerWidth + "px";
     } else {
-        bar.style.fontSize = 0.05 * window.innerHeight + "px";
+        bar.style.fontSize = 0.07 * window.innerHeight + "px";
     }
-    grid.style.marginTop = bar.offsetHeight / 2 + "px";
-    grid.style.marginBottom = bar.offsetHeight / 2 + "px";
+    let yMargins = bar.offsetHeight / 2;
+    grid.style.marginTop = yMargins + "px";
+    grid.style.marginBottom = yMargins + "px";
     let gdHeight = window.innerHeight - bar.offsetHeight * 2;
     let gdWidth = grid.offsetWidth;
     grid.style.height = gdHeight + "px";
@@ -110,16 +112,16 @@ function size() {
         elmnt.style.height = itemHeight + "px";
         elmnt.style.fontSize = itemFontSize + "px";
     }
+
+    undoButton.style.bottom = yMargins + "px";
+    undoButton.style.left = gridItemArray[0].label.offsetLeft + "px";
 }
 
 // size everything
 window.addEventListener("resize", size);
-document.body.onload = function() {
-    size();
-};
+document.body.onload = size();
 
 // undo
-undoButton = document.getElementById("undo-button");
 undoButton.addEventListener("click", undo);
 function undo() {
     if (completedCount >= 3) {
@@ -194,52 +196,61 @@ function getLastSet(set1, set2) {
   return set3;
 }
 
-// open fullscreen
-let fullButton = document.getElementById("fullscreen-button");
-fullButton.addEventListener("click", toggleFullscreen);
-let elem = document.documentElement;
-function toggleFullscreen() {
-    if (fullButton.textContent == "fullscreen") {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
-        }
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { /* Safari */
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { /* IE11 */
-            document.msExitFullscreen();
-        }
-    }
-}
+// // open fullscreen
+// let fullButton = document.getElementById("fullscreen-button");
+// fullButton.addEventListener("click", toggleFullscreen);
+// let elem = document.documentElement;
+// function toggleFullscreen() {
+//     if (fullButton.textContent == "fullscreen") {
+//         if (elem.requestFullscreen) {
+//             elem.requestFullscreen();
+//         } else if (elem.webkitRequestFullscreen) { /* Safari */
+//             elem.webkitRequestFullscreen();
+//         } else if (elem.msRequestFullscreen) { /* IE11 */
+//             elem.msRequestFullscreen();
+//         }
+//     } else {
+//         if (document.exitFullscreen) {
+//             document.exitFullscreen();
+//         } else if (document.webkitExitFullscreen) { /* Safari */
+//             document.webkitExitFullscreen();
+//         } else if (document.msExitFullscreen) { /* IE11 */
+//             document.msExitFullscreen();
+//         }
+//     }
+// }
 
-// when fullscreen change is done:
-// Standard syntax
-document.addEventListener("fullscreenchange", fullscreenChange);
-// Firefox
-document.addEventListener("mozfullscreenchange", fullscreenChange);
-// Chrome, Safari and Opera
-document.addEventListener("webkitfullscreenchange", fullscreenChange);
-// IE / Edge
-document.addEventListener("msfullscreenchange", fullscreenChange);
-// function
-function fullscreenChange() {
-    if (screen.width == window.innerWidth && screen.height == window.innerHeight) {
-        fullButton.textContent = "fullscreen_exit";
-    } else {
-        fullButton.textContent = "fullscreen";
-    }
-}
+// // when fullscreen change is done:
+// // Standard syntax
+// document.addEventListener("fullscreenchange", fullscreenChange);
+// // Firefox
+// document.addEventListener("mozfullscreenchange", fullscreenChange);
+// // Chrome, Safari and Opera
+// document.addEventListener("webkitfullscreenchange", fullscreenChange);
+// // IE / Edge
+// document.addEventListener("msfullscreenchange", fullscreenChange);
+// // function
+// function fullscreenChange() {
+//     if (screen.width == window.innerWidth && screen.height == window.innerHeight) {
+//         fullButton.textContent = "fullscreen_exit";
+//     } else {
+//         fullButton.textContent = "fullscreen";
+//     }
+// }
 
 // dark thing (like a shadow)
 let overlay = document.getElementById("overlay");
 
-// Popup object
+// menu
+let menu = document.getElementById("menu");
+let menuButton = document.getElementById("menu-button");
+menuButton.addEventListener("click", openMenu);
+function openMenu() {
+    menu.style.display = "block";
+    overlay.style.display = "block";
+}
+
+// Popup
 class Popup {
     constructor(popup, activator) {
         this.popup = popup;
@@ -278,8 +289,6 @@ function intoPopup(p, a) {
 }
 
 // popups
-let infoPopup = intoPopup(document.getElementById("info-popup"), document.getElementById("info-button"));
-let settingsPopup = intoPopup(document.getElementById("settings-popup"), document.getElementById("settings-button"));
 let winPopup = intoPopup(document.getElementById("win-popup"));
 
 // restart game with button
@@ -292,13 +301,4 @@ function restart() {
     size();
     completedCount = 0;
     checkCount = 0;
-}
-
-// settings
-selectGridSize = document.getElementById("select-grid-size");
-selectGridSize.addEventListener("input", changeGridSize);
-function changeGridSize() {
-    columnCount = parseInt(selectGridSize.value);
-    restart();
-    size();
 }
