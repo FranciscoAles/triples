@@ -196,47 +196,47 @@ function getLastSet(set1, set2) {
   return set3;
 }
 
-// // open fullscreen
-// let fullButton = document.getElementById("fullscreen-button");
-// fullButton.addEventListener("click", toggleFullscreen);
-// let elem = document.documentElement;
-// function toggleFullscreen() {
-//     if (fullButton.textContent == "fullscreen") {
-//         if (elem.requestFullscreen) {
-//             elem.requestFullscreen();
-//         } else if (elem.webkitRequestFullscreen) { /* Safari */
-//             elem.webkitRequestFullscreen();
-//         } else if (elem.msRequestFullscreen) { /* IE11 */
-//             elem.msRequestFullscreen();
-//         }
-//     } else {
-//         if (document.exitFullscreen) {
-//             document.exitFullscreen();
-//         } else if (document.webkitExitFullscreen) { /* Safari */
-//             document.webkitExitFullscreen();
-//         } else if (document.msExitFullscreen) { /* IE11 */
-//             document.msExitFullscreen();
-//         }
-//     }
-// }
+// open fullscreen
+let fullButton = document.getElementById("fullscreen-button");
+fullButton.addEventListener("click", toggleFullscreen);
+let elem = document.documentElement;
+function toggleFullscreen() {
+    if (fullButton.textContent == "fullscreen") {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
+}
 
-// // when fullscreen change is done:
-// // Standard syntax
-// document.addEventListener("fullscreenchange", fullscreenChange);
-// // Firefox
-// document.addEventListener("mozfullscreenchange", fullscreenChange);
-// // Chrome, Safari and Opera
-// document.addEventListener("webkitfullscreenchange", fullscreenChange);
-// // IE / Edge
-// document.addEventListener("msfullscreenchange", fullscreenChange);
-// // function
-// function fullscreenChange() {
-//     if (screen.width == window.innerWidth && screen.height == window.innerHeight) {
-//         fullButton.textContent = "fullscreen_exit";
-//     } else {
-//         fullButton.textContent = "fullscreen";
-//     }
-// }
+// when fullscreen change is done:
+// Standard syntax
+document.addEventListener("fullscreenchange", fullscreenChange);
+// Firefox
+document.addEventListener("mozfullscreenchange", fullscreenChange);
+// Chrome, Safari and Opera
+document.addEventListener("webkitfullscreenchange", fullscreenChange);
+// IE / Edge
+document.addEventListener("msfullscreenchange", fullscreenChange);
+// function
+function fullscreenChange() {
+    if (screen.width == window.innerWidth && screen.height == window.innerHeight) {
+        fullButton.textContent = "fullscreen_exit";
+    } else {
+        fullButton.textContent = "fullscreen";
+    }
+}
 
 // dark thing (like a shadow)
 let overlay = document.getElementById("overlay");
@@ -247,7 +247,13 @@ let menuButton = document.getElementById("menu-button");
 menuButton.addEventListener("click", openMenu);
 function openMenu() {
     menu.style.display = "block";
-    overlay.style.display = "block";
+}
+
+// close menu
+let closeMenuButton = document.getElementById("close-menu-button");
+closeMenuButton.addEventListener("click", closeMenu);
+function closeMenu() {
+    menu.style.display = "none";
 }
 
 // Popup

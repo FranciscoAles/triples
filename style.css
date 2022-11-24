@@ -188,21 +188,27 @@ body {
 #menu {
     position: absolute;
     background-color: var(--cornerstone);
-    top: 0px;
-    left: 0px;
     width: 250px;
     height: 100%;
     box-shadow: 0px 0px 10px black;
     display: none;
+    top: 0px;
+    left: 0px;
+    color: white;
 }
 
 #menu > .material-symbols-outlined {
     float: right;
     border-radius: 100%;
+    cursor: pointer;
 }
 
 #menu > .material-symbols-outlined:hover {
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+#menu li {
+    cursor: pointer;
 }
 
 .popup {
