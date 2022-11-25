@@ -201,6 +201,8 @@ body {
     float: right;
     border-radius: 100%;
     cursor: pointer;
+    margin: 10px;
+    padding: 10px;
 }
 
 #menu > .material-symbols-outlined:hover {
@@ -209,6 +211,10 @@ body {
 
 #menu li {
     cursor: pointer;
+}
+
+#menu li:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .popup {
