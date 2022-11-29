@@ -268,6 +268,7 @@ class Popup {
         this.openPopup = function () {
             overlay.style.display = "block";
             popup.style.display = "block";
+            closeMenu();
         };
 
         this.closeButton = document.createElement("span");
@@ -296,6 +297,8 @@ function intoPopup(p, a) {
 
 // popups
 let winPopup = intoPopup(document.getElementById("win-popup"));
+let infoPopup = intoPopup(document.getElementById("help-popup"), document.getElementById("help-button"));
+let settingsPopup = intoPopup(document.getElementById("settings-popup"), document.getElementById("settings-button"));
 
 // restart game with button
 let restartButton = document.querySelector("#win-popup button");

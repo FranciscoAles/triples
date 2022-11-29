@@ -186,7 +186,7 @@ body {
 }
 
 #menu {
-    position: absolute;
+    position: fixed;
     background-color: var(--cornerstone);
     width: 250px;
     height: 100%;
@@ -209,12 +209,16 @@ body {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-#menu li {
+#menu-option-wraper {
+    padding: 20px;
+}
+
+.menu-option {
     cursor: pointer;
 }
 
-#menu li:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+.menu-option:hover {
+    text-decoration: underline;
 }
 
 .popup {
@@ -266,4 +270,12 @@ body {
 
 .restart-button:hover {
     opacity: 0.8;
+}
+
+.help-popup > h1 {
+    text-align: center;
+}
+
+.settings-popup > h1 {
+    text-align: center;
 }

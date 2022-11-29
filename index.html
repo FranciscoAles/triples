@@ -23,18 +23,24 @@
         <div id="overlay"></div>
 
         <div id="menu">
-            <span class="material-symbols-outlined" id="close-menu-button">arrow_back_ios_new</span><br>
-            <ul style="list-style-type:none;">
-                <li>Settings</li>
-                <li>Tea</li>
-                <li>Milk</li>
-                <li>Strawberries</li>
-            </ul>  
+            <span class="material-symbols-outlined" id="close-menu-button">arrow_back_ios_new</span>
+            <div id="menu-option-wraper">
+                <div class="menu-option" id="help-button">Help</div>
+                <div class="menu-option" id="settings-button">Settings</div>
+            </div>
         </div>
 
         <div class="popup" id="win-popup">
             <h2>YOU'VE WON!</h2>
             <h2><button class="restart-button">Restart</button></h2>
+        </div>
+
+        <div class="popup" id="help-popup">
+            <h1>How To Play</h1>
+        </div>
+
+        <div class="popup" id="settings-popup">
+            <h1>Settings</h1>
         </div>
         
         <script src="script.js"></script>
