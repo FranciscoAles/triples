@@ -272,10 +272,23 @@ body {
     opacity: 0.8;
 }
 
-.help-popup > h1 {
+#help-popup > h1 {
     text-align: center;
 }
 
-.settings-popup > h1 {
+#settings-popup > h1 {
     text-align: center;
+}
+
+#settings-popup > label {
+    margin-right: 0px;
+}
+
+#select-grid-size {
+    padding: 0.3em;
+    border-radius: 10%;
+    border: 1px solid var(--red);
+    font-size: 1em;
+    margin: 5px;
+    cursor: pointer;
 }

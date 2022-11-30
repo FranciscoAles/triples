@@ -311,3 +311,12 @@ function restart() {
     completedCount = 0;
     checkCount = 0;
 }
+
+// settings
+selectGridSize = document.getElementById("select-grid-size");
+selectGridSize.addEventListener("input", changeGridSize);
+function changeGridSize() {
+    columnCount = parseInt(selectGridSize.value);
+    restart();
+    size();
+}
